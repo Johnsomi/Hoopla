@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace AdvArrayList1
 {
-    public class Section
+    class Assignments
     {
-        //List/Array of students
-
-        //section name int
+        //assignments score
     }
 }

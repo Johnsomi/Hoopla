@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace AdvArrayList1
 {
-    public class Section
+    class Student
     {
-        //List/Array of students
+        //name
+        //username
+        //phone #
+        //tardies
 
-        //section name int
+        //list/array of assignment
+        
     }
 }
