@@ -12,8 +12,9 @@ namespace AdvArrayList1
         //username
         //phone #
         //tardies
+        //absents
 
-        //list/array of assignment
+        //list/array of assignments
         
     }
 }
