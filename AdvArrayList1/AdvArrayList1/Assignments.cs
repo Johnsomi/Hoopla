@@ -9,5 +9,9 @@ namespace AdvArrayList1
     class Assignments
     {
         //assignments score
+        string assignmentName;
+
+        int pointsEarned;
+        int pointsPossible;
     }
 }

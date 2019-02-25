@@ -9,7 +9,9 @@ namespace AdvArrayList1
     public class Section
     {
         //List/Array of students
+        private List<Student> students = new List<Student>();
 
         //section name int
+        private string sectionName;
     }
 }

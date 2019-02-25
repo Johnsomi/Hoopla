@@ -10,6 +10,7 @@ namespace AdvArrayList1
     {
         //properties
         //list/array of sections
+        Section[] sections = new Section[6];
         int currentSection;
 
         //Methods(external API - methods that will be exposed to user to allow the user to interact with your gradebook):  
@@ -17,7 +18,7 @@ namespace AdvArrayList1
 
         //changeSection(string sectionName); sets the currently active section
 
-        //boolean AddStudent(String firstName, String lastName, string username, long phoneNumber); //creates a new student
+        //*//boolean AddStudent(String firstName, String lastName, string username, long phoneNumber); //creates a new student
 
         //double getOverallScore(String username) //returns overall score as a percentage for specified student
 
@@ -33,7 +34,7 @@ namespace AdvArrayList1
 
         //double getAssignmentScoreAvg(String assignmentName) //returns score as a percentage for current section
 
-        //boolean addSection(String sectionName)//creates a new section if there are not already 6 sections and sectionName isnt already used 
+        //// //boolean addSection(String sectionName)//creates a new section if there are not already 6 sections and sectionName isnt already used 
 
         //boolean markTardy(String username) //adds 1 to the students tardy count
 
