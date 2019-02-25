@@ -24,7 +24,7 @@ namespace AdvArrayList1
 
         //double getOverallScoreAvg(String sectionName) //returns overall score as a percentage for a section
 
-        //boolean addAssignmentToStudent(String username, String assignmentName, int pointsPossible)
+        //*//boolean addAssignmentToStudent(String username, String assignmentName, int pointsPossible)
 
         //boolean addAssignmentToSection(String assignmentName, int pointsPossible)
 
