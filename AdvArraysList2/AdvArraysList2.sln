@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvArraysList2", "AdvArraysList2\AdvArraysList2.csproj", "{ABE665F1-0D0E-4C7E-9E71-6A1C56F39822}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABE665F1-0D0E-4C7E-9E71-6A1C56F39822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE665F1-0D0E-4C7E-9E71-6A1C56F39822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE665F1-0D0E-4C7E-9E71-6A1C56F39822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE665F1-0D0E-4C7E-9E71-6A1C56F39822}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9150262-854D-4B4F-995B-6A2E0AD592DB}
+	EndGlobalSection
+EndGlobal
