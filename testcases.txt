@@ -1,0 +1,230 @@
+--Test cases--
+o:Type one of the following commands:
+o:change section
+o:add section
+o:add student
+o:add assignment to student
+o:add assignment to section
+o:set score
+o:mark tardy
+o:mark absent
+o:get overall score
+o:get overall score avg
+o:get assignment score
+o:get assignment score avg
+o:get tardy count
+o:get absent count
+^
+|
+Menu
+
+/////testing add student before section to make sure program properly handles the case where there are no sections created and a different operation is called.
+i:add student
+o:enter student first name
+i:bob
+o:enter student last name
+i:joe
+o:enter student username
+i:bobjoe
+o:enter a phone number including area code as a 10 digit number
+i:1231231234
+o:There was an error with the command, operation not completed
+//should not create add a student because there are no sections added yet
+-------------------------------------------------------------------------------
+o:Type one of the following commands:Menu
+//testing if you can change sections without there being any sections.
+i:change section
+o:enter section name
+i:am
+o:There was an error with the command, operation not completed
+//should not change section because there are no sections.
+-------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can check overall score without any sections, students and assignments.
+i:get overall score
+o:enter username
+i:bobjoe
+o:There was an error with the command, operation not completed
+//should not give score without a section, student, and assignment
+-------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get overall average score without any sections, students and assignments.
+i:get overall average score
+o:There was an error with the command, operation not completed
+//should not give score without a section, student, and assignment
+------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can add an assignment to a non-existant student without a section.
+i:add assignment to student
+o:enter username
+i:bobjoe
+o:enter assignment name
+i:TestCases
+o:enter points possible
+i:30
+o:There was an error with the command, operation not completed
+//shouldn't make an assignment without student and section
+-----------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can add an assignment to a non-existant section.
+i:add assignment to section
+o:assignment name
+i:TestCases
+o:points possible
+i:30
+o:There was an error with the command, operation not completed
+//shouldn't make an assignment without a section
+---------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can set a score without a section, student and assignment.
+i:set score
+o:enter username
+i:bobjoe
+o:enter assignment name
+i:TestCases
+o:enter points earned
+i:30
+o:There was an error with the command, operation not completed
+//shouldn't set a score because there isn't a section, student, and assignment
+---------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get a score percent without a section, student, and assignment.
+i:get assignment score percent
+o:enter username
+i:bobjoe
+o:enter assignment name
+i:TestCases
+o:There was an error with the command, operation not completed
+//shouldn't get a score without a section, student, and assignment
+--------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get an average assignment score without a section, student, and assignment.
+i:get assignment score average
+o:enter assignment name
+i:TestCases
+o:There was an error with the command, operation not completed
+//shouldn't get a score without a section, student, and assignment
+--------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can mark a student tardy without a section and student.
+i:mark tardy
+o:enter username
+i:bobjoe
+o:There was an error with the command, operation not completed
+//shouldn't mark a student tardy without a section and student
+--------------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can mark a student absent without a section and student.
+i:mark absent
+o:enter username
+i:bobjoe
+o:There was an error with the command, operation not completed
+//shouldn't mark a student absent without a section and student
+-----------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get a tardy count without a section and student.
+i:get tardy count
+o:enter username
+i:bobjoe
+o:There was an error with the command, operation not completed
+//shouldn't get a tardy count without a section and student
+-------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get an absent count without a section and student.
+i:get absent count
+o:enter username
+i:bobjoe
+o:There was an error with the command, operation not completed
+//shouldn't get an absent count without a section and student
+---------------------------------------------------------------------------------
+/////////////////////////////////////////////////////////////////////////////////////////////
+add section
+///////////////////////////////////////////////////////////////////////////////////////////
+-------------------------------------------------------------------------------
+o:Type one of the following commands:Menu
+/////testing to make sure the gradebook can add sections
+i:add section
+o:Enter a section name
+i:am
+o:action completed successfully
+//should see the section created in gradebook with the name am but no students added. Current section should show "am" is active
+-----------------------------------------------------------------------------------
+o:Type one of the following commands:Menu
+
+/////testing to make sure it doesnt allow you to add a section if there is already one with that sectionName
+i:add section
+o:Enter a section name
+i:am
+o:There was an error with the command, operation not completed
+//should not be added because there is already a section with that name in the gradebook
+-----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------
+o:Type one of the following commands:Menu
+
+///testing to make sure that the grade book can add more than one section
+i:add section
+o:Enter a section name
+i:pm
+o:action completed successfully
+//should see the section created in gradebook with the name pm but no students added. pm is currentSection
+----------------------------------------------------------------------------------------
+o:Type one of the following commands:Menu
+
+/////testing to make sure a student can be created and added to the active section
+i:add student
+o:Enter student first name
+i:david
+o:Enter student last name
+i:baker
+o:Enter student username
+i:davidbaker
+o:Enter student phone number
+i:1231231234
+o:action completed successfully
+//should see student is created and added to the pm section and the student should have the information specified absent/tardycount should be 0 and have 0 assignments assigned.
+----------------------------------------------------------------------------------------
+o:Type one of the following commands:Menu
+
+/////testing to make sure a second student can be created and added to the active section
+i:add student
+o:Enter student first name
+i:david
+o:Enter student last name
+i:baker
+o:Enter student username
+i:davidbaker1
+o:Enter student phone number
+i:1231231234
+o:action completed successfully
+//should see student is created and added to the pm section and the student should have the information specified
+--------------------------------------------------------------------------------------------------
+o:Type one of the following commands:Menu
+
+/////testing to make sure a student can be created and added to the active section
+i:add student
+o:Enter student first name
+i:bob
+o:Enter student last name
+i:joe
+o:Enter student username
+i:bob1
+o:Enter student phone number
+i:9879879876
+o:action completed successfully
+//should see student is created and added to the pm section and the student should have the information specified

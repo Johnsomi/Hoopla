@@ -11,37 +11,112 @@ namespace AdvArrayList1
         //properties
         //list/array of sections
         Section[] sections = new Section[6];
-        int currentSection;
+        string currentSection;
 
-        //Methods(external API - methods that will be exposed to user to allow the user to interact with your gradebook):  
-        //functions that return boolean values: (true means successful, false means it could not add/set etc)
 
-        //changeSection(string sectionName); sets the currently active section
 
-        //*//boolean AddStudent(String firstName, String lastName, string username, long phoneNumber); //creates a new student
+        //sets the currently active section - needs to set the currently active section
+        //to the section with the given sectionName.
+        // Returns: true if it succeeds false if it fails(no section that matches that name).
+        public bool changeSection(string sectionName)
+        {
+            return false; //FIXME
+        }
 
-        //double getOverallScore(String username) //returns overall score as a percentage for specified student
+        //creates a new section if there are not already 6 sections
+        // and sectionName is not already used , also need to set the currentSection to be the new section
+        // Returns: true if it succeeds false if it fails.
+        public bool addSection(string sectionName)
+        {
+            return false; //FIXME
+        }
+        //Creates a new student and adds the student to the currently active section
+        //returns: True if it succeeds, false if it fails(a student with the same username already exists or there are no sections) 
+        public bool addStudent(string firstName, string lastName, string username, long phoneNumber)
+        {
+            return false; //FIXME
+        }
 
-        //double getOverallScoreAvg(String sectionName) //returns overall score as a percentage for a section
+        //returns overall score (total points earned for all assignments/ total points possible) as a percentage for specified student
+        //returns -1 if the student was not found or if the student did not have any assignments assigned or there are no sections.
+        public double getOverallScore(string username)
+        {
+            return -1; //FIXME
+        }
+        //returns overall score as a percentage for the current section - (the average of each students overall score.)
+        //Each student should have the same weight even if they have different number of points possible
+        //IE: get each student's overall score as a percentage and calculate the average percentage for the students .
+        //do not count students with no assignments assigned in the average.
+        //returns -1 if there were no assignments in the section or there are no sections.
+        public double getOverallScoreAvg()
+        {
+            return -1; //FIXME
+        }
 
-        //*//boolean addAssignmentToStudent(String username, String assignmentName, int pointsPossible)
 
-        //boolean addAssignmentToSection(String assignmentName, int pointsPossible)
+        //creates a new assignment and adds it to the student specified by username.
+        //Returns true if it succeeds and false if the student is not found or the student already has an assignment with the
+        //same assignmentName or there are no sections
+        public bool addAssignmentToStudent(string username, string assignmentName, int pointsPossible)
+        {
+            return false; //FIXME
+        }
 
-        //boolean setScore(String username, String assignmentName, int pointsEarned)
+        //checks to make sure no student already has an assignment with the same assignment name first
+        //if there is no existing assignment it creates a new assignment and adds the assignment to all
+        // the students in the current section.
+        //returns: True if successful and false if at least one student has the same assignment name or there are no sections
+        public bool addAssignmentToSection(string assignmentName, int pointsPossible)
+        {
+            return false;//FIXME
+        }
 
-        //double getAssignmentScorePercent(String username, String assignmentName) //returns score as a percentage for student in current section
+        //sets the pointsEarned property for the student specified in the current section for the assignment specified
+        //returns: true if successful, false if the student is not found or the assignmentName is not found  or there are no sections.
+        public bool setScore(string username, string assignmentName, int pointsEarned)
+        {
+            return false;//FIXME
+        }
 
-        //double getAssignmentScoreAvg(String assignmentName) //returns score as a percentage for current section
+        //returns score on assignment specified as a percentage for the specified student in the current section
+        //returns -1 if the student was not found or the student did not have an assignment with the specified assignment name or there are no sections
+        public double getAssignmentScorePercent(string username, string assignmentName)
+        {
+            return -1;//FIXME
+        }
 
-        //// //boolean addSection(String sectionName)//creates a new section if there are not already 6 sections and sectionName isnt already used 
+        //returns the average score as a percentage for the current section.
+        //only the student with the assignment assigned to them will be counted in the average.
+        //returns -1 if no student had an assignment with the specified assignment name  or there are no sections
+        public double getAssignmentScoreAvg(string assignmentName)
+        {
+            return -1;//FIXME
+        }
 
-        //boolean markTardy(String username) //adds 1 to the students tardy count
+        //adds 1 to the specified student's tardy count.
+        //returns: true if successful, false if the student was not found in the current section  or there are no sections
+        public bool markTardy(string username)
+        {
+            return false;//FIXME
+        }
 
-        //boolean markAbsent(String username) //adds 1 to the students absent count
+        //adds 1 to the specified student's absent count.
+        //returns: true if successful, false if the student was not found in the current section  or there are no sections
+        public bool markAbsent(string username)
+        {
+            return false; //FIXME
+        }
 
-        //int getTardyCount(String username)  //returns number of times student was tardy
+        //returns the student tardy count for the specified student, it returns -1 if the student was not found  or there are no sections
+        public int getTardyCount(string username)
+        {
+            return -1; //FIXME
+        }
 
-        //int getAbsentCount(String username) //returns number of times student was absent
+        //returns the student tardy count for the specified student, it returns -1 if the student was not found  or there are no sections
+        public int getAbsentCount(string username)
+        {
+            return -1; //FIXME
+        }
     }
 }
