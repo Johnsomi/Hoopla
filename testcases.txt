@@ -54,7 +54,7 @@ o:There was an error with the command, operation not completed
 //should not give score without a section, student, and assignment
 ------------------------------------------------------------------------------
 o:type one of the following commands:Menu
-//testing if you can add an assignment to a non-existant student without a section.
+//testing if you can add an assignment to a without a student and section.
 i:add assignment to student
 o:enter username
 i:bobjoe
@@ -66,7 +66,7 @@ o:There was an error with the command, operation not completed
 //shouldn't make an assignment without student and section
 -----------------------------------------------------------------------------
 o:type one of the following commands:Menu
-//testing if you can add an assignment to a non-existant section.
+//testing if you can add an assignment without a section.
 i:add assignment to section
 o:assignment name
 i:TestCases
@@ -159,12 +159,285 @@ o:There was an error with the command, operation not completed
 //should not be added because there is already a section with that name in the gradebook
 -----------------------------------------------------------------------------------------
 o:type one of the following commands:Menu
-//testing
-
-
-
-
-
+//testing to see if you can change into a non-existing section.
+i:change section
+o:enter section name
+i:pm
+o:There was an error with the command, operation not completed
+//should not be able to change into a non-existing section
+----------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing to see if you can change into the section you're already in.
+i:change section
+o:enter section name
+i:am
+o:There was an error with the command, operation not completed
+//should not be able to change into a section that you are already in
+----------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing to see if you can get an overall score without a student and assignment, but with a section.
+i:get overall score
+o:enter username
+i:bobjoe
+o:There was an error with the command, operation not completed
+//should not be able to get a score without a student and assignment
+------------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get an average score without a student and assignment, but with a section.
+i:get overall score average
+o:There was an error with the command, operation not completed
+//should not give score without a student and assignment
+----------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can add an assignment without a student.
+i:add assignment to student
+o:enter username
+i:bobjoe
+o:enter assignment name
+i:TestCases
+o:points possible
+i:30
+o:There was an error with the command, operation not completed
+//should not give an assignment to a non-existing student
+----------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can set a score without a student and assignment.
+i:set score
+o:enter username
+i:bobjoe
+o:enter assignment name
+i:TestCases
+o:points earned
+i:30
+o:There was an error with the command, operation not completed
+//should not set a score without a student and assignment
+-------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get a score percent without a student and assignment.
+i:get assignment score percent
+o:enter username
+i:bobjoe
+o:enter assignment name
+i:TestCases
+o:There was an error with the command, operation not completed
+//should not get percent without a student and assignment
+-----------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get a score average without an assignment.
+i:get assignment score average
+o:enter assignment name
+i:TestCases
+o:There was an error with the command, operation not completed
+//shouldn't get a score average without an assignment
+-------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can mark a student tardy without a student.
+i:mark tardy
+o:enter username
+i:bobjoe
+o:There was an error with the command, operation not completed
+//shouldn't mark a student tardy if there isn't a student
+-------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can mark a student absent without a student.
+i:mark absent
+o:enter username
+i:bobjoe
+o:There was an error with the command, operation not completed
+//shouldn't mark a student absent if there isn't a student.
+---------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get a tardy count without a student.
+i:get tardy count
+o:enter username
+i:bobjoe
+o:There was an error with the command, operation not completed
+//shouldn't get a tardy count without a student
+-------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get an absent count without a student.
+i:get absent count
+o:enter username
+i:bobjoe
+o:There was an error with the command, operation not completed
+//shouldn't get an absent count without a student
+----------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can add an assignment to a section without students.
+i:add assignment to section
+o:enter assignment name
+i:TestCases
+o:points possible
+i:30
+o:There was an error with the command, operation not completed
+//shouldn't add an assignment to a section without students
+---------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can create and add a student to section.(am)
+i:add student
+o:enter first name
+i:bob
+o:enter last name
+i:joe
+o:enter username
+i:bobjoe
+o:enter phone number
+i:1234567890
+o:action completed successfully
+//should see the student has been created and added to am section and the student should have the information specified absent/tardycount should be 0 and have 0 assignments assigned.
+----------------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get a tardy count from a student with 0 tardies.
+i:get tardy count
+o:enter username
+i:bobjoe
+o:action completed successfully
+//should see that the student has 0 tardies.
+------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get an absent count from a student with 0 absents.
+i:get absent count
+o:enter username
+i:bobjoe
+o:action completed successfully
+//should see that the student has 0 absents.
+------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can mark a student tardy in current section.
+i:mark tardy
+o:enter username
+i:bobjoe
+o:action completed successfully
+//should see that the student has gotten a tardy.
+---------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can mark a student absent in current section.
+i:mark absent
+o:enter username
+i:bobjoe
+o:action completed successfully
+//should see that the student has gotten an absent
+-----------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get a tardy count with more than 0 tardies.
+i:get tardy count
+o:enter username
+i:bobjoe
+o:action completed successfully
+//should show that the student has 1 tardy.
+----------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get an absent count with more that 0 absents.
+i:get absent count
+o:enter username
+i:bobjoe
+o:action completed successfully
+//should show that the student has 1 absent.
+----------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can add the same username to a different student in the same section.
+i:add student
+o:enter first name
+i:bobby
+o:enter last name
+i:joel
+o:enter username 
+i:bobjoe
+o:enter phone number
+i:0987654321
+o:There was an error with the command, operation not completed
+//shouldn't make another student with same username
+------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//Testing if you can add another student to a section.
+i:add student
+o:enter first name
+i:will
+o:enter last name
+i:smith
+o:enter username
+i:wilsmi
+o:enter phone number
+i:1209348756
+o:action completed successfully
+//should see the student has been created and added to am section and the student should have the information specified absent/tardycount should be 0 and have 0 assignments assigned.
+------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can add an assignment to a student.
+i:add assignment to student
+o:enter username
+i:bobjoe
+o:enter assignment name
+i:TestCases1
+o:points possible
+i:30
+o:action completed successfully
+//should show that the assignment TestCases1 has been added to the student bobjoe
+------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can add an assignment to a section with students.
+i:add assignment to section
+o:enter assignment name
+i:TestCases2
+o:points possible
+i:30
+o:action completed successfully
+//should show that TestCases2 has been added to bobjoe and wilsmi, both having 0's
+------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can set a score to student with assignment.
+i:set score
+o:enter username
+i:bobjoe
+o:enter assignment name
+i:TestCases2
+o:points earned
+i:30
+o:action completed successfully
+//should show that bobjoe now has a score for TestCases2
+----------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get an assignment score percent from student with more than 0.
+i:get assignment score percent
+o:enter username
+i:bobjoe
+o:enter assignment name
+i:TestCases2
+o:action completed successfully
+//should show bobjoe has 100% on TestCases2
+-------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get an assignment score percent from student with 0.
+i:get assignment score percent
+o:enter username
+i:wilsmi
+o:enter assignment name
+i:TestCases2
+o:action completed successfully
+//should show wilsmi has 0% on TestCases2
+----------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get an assignment score average in section.
+i:get assignment score average
+o:enter assignment name
+i:TestCases2
+o:action completed successfully
+//should show that the section average is 50%
+-----------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get a students overall score in a section.
+i:get overall score
+o:enter username
+i:bobjoe
+o:action completed successfully
+//should show that bobjoe has 50%
+----------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get an overall average score in a section.
+i:get overall score average
+o:action completed successfully
+//should show that score average is 25%
+-------------------------------------------------------------------
 
 
 
