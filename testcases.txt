@@ -438,16 +438,15 @@ i:get overall score average
 o:action completed successfully
 //should show that score average is 25%
 -------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
+o:type one of the following commands:Menu
+//testing if you can add an assignment to a section while one student already has it.
+i:add assignment to section
+o:enter assignment name
+i:TestCases1
+o:points possible
+i:30
+o:There was an error with the command, operation not completed
+//should not make an assignment for the section if there is a student that has the assignment already
 -----------------------------------------------------------------------------------
 o:Type one of the following commands:Menu
 
@@ -458,6 +457,22 @@ i:pm
 o:action completed successfully
 //should see the section created in gradebook with the name pm but no students added. pm is currentSection
 ----------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing to see if you can change sections
+i:change sections
+o:enter section name
+i:am
+o:action completed successfully
+//should see that the current section is now am
+------------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing to see if you can change back to previous section.
+i:change sections
+o:enter section name
+i:pm
+o:action completed successfully
+//should see that the current section is now pm
+--------------------------------------------------------------------------------------
 o:Type one of the following commands:Menu
 
 /////testing to make sure a student can be created and added to the active section
@@ -475,7 +490,7 @@ o:action completed successfully
 ----------------------------------------------------------------------------------------
 o:Type one of the following commands:Menu
 
-/////testing to make sure a second student can be created and added to the active section
+/////testing to make sure a second student can be created and added to the active section, while only changing username.
 i:add student
 o:Enter student first name
 i:david
@@ -486,19 +501,76 @@ i:davidbaker1
 o:Enter student phone number
 i:1231231234
 o:action completed successfully
-//should see student is created and added to the pm section and the student should have the information specified
---------------------------------------------------------------------------------------------------
-o:Type one of the following commands:Menu
-
-/////testing to make sure a student can be created and added to the active section
-i:add student
-o:Enter student first name
-i:bob
-o:Enter student last name
-i:joe
-o:Enter student username
-i:bob1
-o:Enter student phone number
-i:9879879876
+//should see student is created and added to the pm section and the student should have the information specified absent/tardycount should be 0 and have 0 assignments assigned.
+-----------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can add an assignment to a student in a different section.
+i:add assignment to student
+o:enter username
+i:bobjoe
+o:enter assignment name
+i:TestCases3
+o:points possible
+i:20
+o:There was an error with the command, operation not completed
+//should not add an assignment to a student in a different section
+-------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can add an assignment to current section while it already exists in another section.
+i:add assignment to section
+o:enter assignment name
+i:TestCases2
+o:points possible
+i:30
 o:action completed successfully
-//should see student is created and added to the pm section and the student should have the information specified
+//should show that TestCases2 was added to davidbaker and davidbaker1
+------------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can set score of student.
+i:set score
+o:enter username
+i:davidbaker
+o:enter assignment name
+i:TestCases2
+o:points earned
+i:15
+o:action completed successfully
+//should show the score of davidbaker for TestCases2 changed to 15
+---------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can change a set score of a student.
+i:set score
+o:enter username
+i:davidbaker
+o:enter assignment name
+i:TestCases2
+o:points earned
+i:20
+o:action completed successfully
+//should show that davidbaker's score for TestCases2 has been changed from 15 to 20
+-----------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can set the score of another student for the same assignment.
+i:set score
+o:enter username
+i:davidbaker1
+o:enter assignment name
+i:TestCases2
+o:points earned
+i:15
+o:action completed successfully
+//should show that the score of davidbaker1 for TestCases2 changed to 15
+-----------------------------------------------------------------------------------------
+o:type one of the following commands:Menu
+//testing if you can get an assignment score average that's a repeating number.
+i:get assignment score average
+o:enter assignment name
+i:TestCases2
+o:action completed successfully
+//should show the percentage has been rounded to 58.33%.
+-----------------------------------------------------------------------------------
+
+
+
+
+
