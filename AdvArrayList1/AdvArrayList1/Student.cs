@@ -13,19 +13,33 @@ namespace AdvArrayList1
         string lastName;
 
         //username
-        string username;
+        private string username;
+
+        public string getUsername()
+        {
+            return username;
+        }
 
         //phone #
         long phoneNumber;
 
         //tardies
-        int tardies;
+        int daysTardy;
 
         //absents
-        int absents;
+        int daysAbsent;
 
         //list/array of assignments
-        List<Assignments> assignments = new List<Assignments>();
+        List<Assignment> assignments = new List<Assignment>();
         
+        public Student (string firstName, string lastName, string username, long phoneNumber)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.username = username;
+            this.phoneNumber = phoneNumber;
+            this.daysAbsent = 0;
+            this.daysTardy = 0;
+        }
     }
 }

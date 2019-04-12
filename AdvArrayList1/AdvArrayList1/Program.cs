@@ -175,14 +175,14 @@ namespace AdvArrayList1
                 {
                     Console.WriteLine("enter a phone number including area code as a 10 digit number");
                     long phoneNumber = Convert.ToInt64(Console.ReadLine());
-                    if (phoneNumber < 1000000000l || phoneNumber > 9999999999l)
+                    if (phoneNumber < 1000000000L || phoneNumber > 9999999999L)
                     {
                         Console.WriteLine("not a valid phone number enter a number including area code without space or - etc");
                         continue;
                     }
                     return phoneNumber;
                 }
-                catch (FormatException ex)
+                catch (FormatException)
                 {
                     Console.WriteLine("not an integer");
                 }
@@ -195,7 +195,7 @@ namespace AdvArrayList1
                 try
                 {
                     Console.WriteLine("Enter amount of points");
-                    int number = Integer.parseInt(Console.ReadLine());
+                    int number = Convert.ToInt32(Console.ReadLine());
                     if (number < 0)
                     {
                         Console.WriteLine("not a positive integer");
@@ -203,7 +203,7 @@ namespace AdvArrayList1
                     }
                     return number;
                 }
-                catch (NumberFormatException ex)
+                catch (FormatException)
                 {
                     Console.WriteLine("not an integer");
                 }

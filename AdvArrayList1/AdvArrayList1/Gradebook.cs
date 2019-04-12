@@ -10,10 +10,14 @@ namespace AdvArrayList1
     {
         //properties
         //list/array of sections
-        Section[] sections = new Section[6];
-        string currentSection;
+        //Section[] sections = new Section[6];
+        List<Section> sections = new List<Section>();
+        string currentSectionName;
 
-
+        public Gradebook()
+        {
+            currentSectionName = "";
+        }
 
         //sets the currently active section - needs to set the currently active section
         //to the section with the given sectionName.
@@ -28,13 +32,43 @@ namespace AdvArrayList1
         // Returns: true if it succeeds false if it fails.
         public bool addSection(string sectionName)
         {
-            return false; //FIXME
+            //return false if already 6 sections
+            if (sections.Count() == 6)
+            {
+                return false;
+            }
+            //return false if section name is in use
+            int sectionIndex = getSectionIndexBySectionName(sectionName);
+            if (sectionIndex != -1)
+            {
+                return false;
+            }
+            //otherwise
+            //create new section, add it to (List)sectons  
+            sections.Add(new Section(sectionName));
+            //set currentSection to the new section
+            currentSectionName = sectionName;
+            //return true
+            return true;
+
         }
         //Creates a new student and adds the student to the currently active section
         //returns: True if it succeeds, false if it fails(a student with the same username already exists or there are no sections) 
         public bool addStudent(string firstName, string lastName, string username, long phoneNumber)
         {
-            return false; //FIXME
+            //if no sections, return false
+            if (sections.Count == 0)
+            {
+                return false;
+            }
+            //get current active section
+            Section curSection = getCurrentSection();
+            if(curSection == null)
+            {
+                return false;
+            }
+            //add student to the active section
+            return curSection.addStudent(firstName, lastName, username, phoneNumber);            
         }
 
         //returns overall score (total points earned for all assignments/ total points possible) as a percentage for specified student
@@ -117,6 +151,37 @@ namespace AdvArrayList1
         public int getAbsentCount(string username)
         {
             return -1; //FIXME
+        }
+
+        //returns -1 if no section was found with the given section name
+        //otherwise returns the index of the section with the matching name
+        private int getSectionIndexBySectionName(string sectionName)
+        {
+            int index = 0;  // |   |   |   |   |
+            while (index < sections.Count())
+            {
+                if (sectionName.Equals(sections[index].getSectionName()))
+                {
+                    return index;
+                }
+                index++;
+            }
+            return -1;
+        }
+
+        //return the section if there are any sections
+        //return null if there is no current section
+        private Section getCurrentSection()
+        {
+            //getSectionIndex(currentSectionName)
+            int index = getSectionIndexBySectionName(currentSectionName);
+            //if index = -1, return null
+            if (index == -1)
+            {
+                return null;
+            }
+            //otherwise return section at that index
+            return sections[index];
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdvArrayList1
 {
-    class Assignments
+    public class Assignment
     {
         
         //assignments score
@@ -15,11 +15,11 @@ namespace AdvArrayList1
         int pointsEarned;
         int pointsPossible;
 
-        Assignments(string AssignmentName,int PointsEarned, int PointsPossible)
+        public Assignment(int pointsPossible, int pointsEarned, string assignmentName)
         {
-            assignmentName = AssignmentName;
-            pointsEarned = PointsEarned;
-            pointsPossible = PointsPossible;
+            this.assignmentName = assignmentName;
+            this.pointsEarned = pointsEarned;
+            this.pointsPossible = pointsPossible;
         }
     }
 }
