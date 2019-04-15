@@ -21,5 +21,10 @@ namespace AdvArrayList1
             this.pointsEarned = pointsEarned;
             this.pointsPossible = pointsPossible;
         }
+
+        public string getAssignmentName()
+        {
+            return assignmentName;
+        }
     }
 }

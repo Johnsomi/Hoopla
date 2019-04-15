@@ -40,6 +40,64 @@ namespace AdvArrayList1
             return true;
         }
 
+        public bool addAssignmentToSection(string assignmentName, int pointsPossible)
+        {
+            //false if no students
+            if(students.Count == 0)
+            {
+                return false;
+            }
+            //false if a student has the assignment
+            int index = 0;
+            while(index < students.Count)
+            {
+                //false if a student has the assignment
+                if (students[index].getAssignment(assignmentName) != null)
+                {
+                    return false;
+                }
+                index++;
+            }
+            //loop through students
+            index = 0;
+            while(index < students.Count)
+            {
+                students[index].addAssignment(assignmentName, pointsPossible);
+                index++;
+            }
+            return true;
+                //addAssignment to the student
+        }
+
+        //mark the student specified by username tardy (increase tardy count)
+        //if student no found return false, otherwise true
+        public bool markTardy(string username)
+        {
+            //get the student specified by username
+            Student curStudent = getCurrentStudent(username);
+            //if no student return false
+            if(curStudent == null)
+            {
+                return false;
+            }
+            //mark student as tardy
+            curStudent.markTardy();
+            return true;
+        }
+
+        public bool markAbsent(string username)
+        {
+            Student curStudent = getCurrentStudent(username);
+
+            if(curStudent == null)
+            {
+                return false;
+            }
+
+            curStudent.markAbsent();
+            return true;
+        }
+
         //returns -1 if no student was found with the given username name
         //otherwise returns the index of the student with the matching username
         private int getStudentIndexByUsername(string username)
@@ -54,6 +112,21 @@ namespace AdvArrayList1
                 index++;
             }
             return -1;
+        }
+
+        
+        
+        private Student getCurrentStudent(string username)
+        {
+            
+            int index = getStudentIndexByUsername(username);
+            
+            if (index == -1)
+            {
+                return null;
+            }
+            
+            return students[index];
         }
     }
 }

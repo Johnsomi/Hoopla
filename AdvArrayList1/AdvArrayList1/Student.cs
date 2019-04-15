@@ -41,5 +41,51 @@ namespace AdvArrayList1
             this.daysAbsent = 0;
             this.daysTardy = 0;
         }
+
+        public void markTardy()
+        {
+            daysTardy++;
+        }
+
+        public void markAbsent()
+        {
+            daysAbsent++;
+        }
+
+        //returns -1 if no student was found with the given username name
+        //otherwise returns the index of the student with the matching username
+        public int getAssignmentIndexByAssignmentName(string assignmentName)
+        {
+            int index = 0;  // |   |   |   |   |
+            while (index < assignments.Count())
+            {
+                if (assignmentName.Equals(assignments[index].getAssignmentName()))
+                {
+                    return index;
+                }
+                index++;
+            }
+            return -1;
+        }
+
+
+
+        public Assignment getAssignment(string assignmentName)
+        {
+
+            int index = getAssignmentIndexByAssignmentName(assignmentName);
+
+            if (index == -1)
+            {
+                return null;
+            }
+
+            return assignments[index];
+        }
+
+        public void addAssignment(string assignmentName, int pointsPossible)
+        {
+            assignments.Add(new Assignment(pointsPossible, 0, assignmentName));
+        }
     }
 }

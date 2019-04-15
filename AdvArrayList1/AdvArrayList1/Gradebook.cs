@@ -24,7 +24,18 @@ namespace AdvArrayList1
         // Returns: true if it succeeds false if it fails(no section that matches that name).
         public bool changeSection(string sectionName)
         {
-            return false; //FIXME
+            if(sections.Count == 0)
+            {
+                return false;
+            }
+            int sectionIndex = getSectionIndexBySectionName(sectionName);
+            if (sectionIndex == -1)
+            {
+                return false;
+            }
+
+            currentSectionName = sectionName;
+            return true;
         }
 
         //creates a new section if there are not already 6 sections
@@ -102,7 +113,18 @@ namespace AdvArrayList1
         //returns: True if successful and false if at least one student has the same assignment name or there are no sections
         public bool addAssignmentToSection(string assignmentName, int pointsPossible)
         {
-            return false;//FIXME
+            if(sections.Count == 0)
+            {
+                return false;
+            }
+
+            Section curSection = getCurrentSection();
+            if (curSection == null)
+            {
+                return false;
+            }
+            return curSection.addAssignmentToSection(assignmentName, pointsPossible);
+            
         }
 
         //sets the pointsEarned property for the student specified in the current section for the assignment specified
@@ -131,19 +153,43 @@ namespace AdvArrayList1
         //returns: true if successful, false if the student was not found in the current section  or there are no sections
         public bool markTardy(string username)
         {
-            return false;//FIXME
+            //if no sections, return false
+            if(sections.Count == 0)
+            {
+                return false;
+            }
+            //get current active section
+            Section curSection = getCurrentSection();
+            if (curSection == null)
+            {
+                return false;
+            }
+            //mark student as tardy
+            return curSection.markTardy(username);
         }
 
         //adds 1 to the specified student's absent count.
         //returns: true if successful, false if the student was not found in the current section  or there are no sections
         public bool markAbsent(string username)
         {
-            return false; //FIXME
+            if (sections.Count == 0)
+            {
+                return false;
+            }
+            //get current active section
+            Section curSection = getCurrentSection();
+            if (curSection == null)
+            {
+                return false;
+            }
+            //mark student as absent
+            return curSection.markAbsent(username);
         }
 
         //returns the student tardy count for the specified student, it returns -1 if the student was not found  or there are no sections
         public int getTardyCount(string username)
         {
+            
             return -1; //FIXME
         }
 
