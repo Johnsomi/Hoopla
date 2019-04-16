@@ -40,6 +40,26 @@ namespace AdvArrayList1
             return true;
         }
 
+        public bool addAssignmentToStudent(string username, string assignmentName, int pointsPossible)
+        {
+            if (students.Count == 0)
+            {
+                return false;
+            }
+
+            Student student = getCurrentStudent(username);
+            if(student == null)
+            {
+                return false;
+            }
+            if(student.getAssignment(assignmentName) != null)
+            {
+                return false;
+            }
+            student.addAssignment(assignmentName, pointsPossible);
+            return true;
+        }
+
         public bool addAssignmentToSection(string assignmentName, int pointsPossible)
         {
             //false if no students
@@ -47,7 +67,7 @@ namespace AdvArrayList1
             {
                 return false;
             }
-            //false if a student has the assignment
+            
             int index = 0;
             while(index < students.Count)
             {

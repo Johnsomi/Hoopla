@@ -104,7 +104,17 @@ namespace AdvArrayList1
         //same assignmentName or there are no sections
         public bool addAssignmentToStudent(string username, string assignmentName, int pointsPossible)
         {
-            return false; //FIXME
+            if(sections.Count == 0)
+            {
+                return false;
+            }
+            Section curSection = getCurrentSection();
+            if(curSection == null)
+            {
+                return false;
+            }
+            return curSection.addAssignmentToStudent(username, assignmentName, pointsPossible);
+            
         }
 
         //checks to make sure no student already has an assignment with the same assignment name first
@@ -189,7 +199,6 @@ namespace AdvArrayList1
         //returns the student tardy count for the specified student, it returns -1 if the student was not found  or there are no sections
         public int getTardyCount(string username)
         {
-            
             return -1; //FIXME
         }
 
