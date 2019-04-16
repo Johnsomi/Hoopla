@@ -141,7 +141,18 @@ namespace AdvArrayList1
         //returns: true if successful, false if the student is not found or the assignmentName is not found  or there are no sections.
         public bool setScore(string username, string assignmentName, int pointsEarned)
         {
-            return false;//FIXME
+            if (sections.Count == 0)
+            {
+                return false;
+            }
+
+            Section curSection = getCurrentSection();
+            if (curSection == null)
+            {
+                return false;
+            }
+            return curSection.setScore(username, assignmentName, pointsEarned);
+            //FIXME
         }
 
         //returns score on assignment specified as a percentage for the specified student in the current section

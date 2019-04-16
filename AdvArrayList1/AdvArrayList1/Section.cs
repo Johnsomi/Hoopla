@@ -40,6 +40,25 @@ namespace AdvArrayList1
             return true;
         }
 
+        public bool setScore(string username, string assignmentName, int pointsEarned)
+        {
+            if (students.Count == 0)
+            {
+                return false;
+            }
+            Student student = getCurrentStudent(username);
+            if (student == null)
+            {
+                return false;
+            }
+            if(student.getAssignment(assignmentName) == null)
+            {
+                return false;
+            }
+            student.getAssignment(assignmentName).setScore(pointsEarned);
+            return true;
+        }
+
         public bool addAssignmentToStudent(string username, string assignmentName, int pointsPossible)
         {
             if (students.Count == 0)

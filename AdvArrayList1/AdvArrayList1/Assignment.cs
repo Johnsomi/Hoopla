@@ -26,5 +26,10 @@ namespace AdvArrayList1
         {
             return assignmentName;
         }
+
+        public void setScore(int score)
+        {
+            pointsEarned = score;
+        }
     }
 }
