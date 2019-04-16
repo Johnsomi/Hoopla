@@ -68,6 +68,27 @@ namespace AdvArrayList1
             return -1;
         }
 
+        public double getOverallScore()
+        {
+            double totalPointsEarned = 0;
+            double totalPointsPossible = 0;
+            //if student has no assignment return -1
+            if(assignments.Count == 0)
+            {
+                return -1;
+            }
+            int index = 0;
+            while (index < assignments.Count())
+            {
+                //get points earned for first assignment
+                totalPointsEarned += assignments[index].getPointsEarned();
+                //then add new points earned to old one
+                totalPointsPossible += assignments[index].getPointsPossible();
+                index++;
+            }
+            //loop through all assignments
+                //add points earned / points possible
+        }
 
         public Assignment getAssignment(string assignmentName)
         {

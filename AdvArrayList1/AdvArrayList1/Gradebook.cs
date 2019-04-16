@@ -86,7 +86,17 @@ namespace AdvArrayList1
         //returns -1 if the student was not found or if the student did not have any assignments assigned or there are no sections.
         public double getOverallScore(string username)
         {
-            return -1; //FIXME
+            if(sections.Count == 0)
+            {
+                return -1;
+            }
+            Section curSection = getCurrentSection();
+            if (curSection == null)
+            {
+                return -1;
+            }
+            return curSection.getOverallScore(username);
+            //FIXME
         }
         //returns overall score as a percentage for the current section - (the average of each students overall score.)
         //Each student should have the same weight even if they have different number of points possible
@@ -152,7 +162,7 @@ namespace AdvArrayList1
                 return false;
             }
             return curSection.setScore(username, assignmentName, pointsEarned);
-            //FIXME
+            
         }
 
         //returns score on assignment specified as a percentage for the specified student in the current section

@@ -31,5 +31,15 @@ namespace AdvArrayList1
         {
             pointsEarned = score;
         }
+
+        public int getPointsEarned()
+        {
+            return pointsEarned;
+        }
+
+        public int getPointsPossible()
+        {
+            return pointsPossible;
+        }
     }
 }

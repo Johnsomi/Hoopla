@@ -108,6 +108,20 @@ namespace AdvArrayList1
                 //addAssignment to the student
         }
 
+        public double getOverallScore(string username)
+        {
+            if (students.Count == 0)
+            {
+                return -1;
+            }
+            Student student = getCurrentStudent(username);
+            if (student == null)
+            {
+                return -1;
+            }
+            student.getOverallScore();
+        }
+
         //mark the student specified by username tardy (increase tardy count)
         //if student no found return false, otherwise true
         public bool markTardy(string username)
