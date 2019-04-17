@@ -105,7 +105,17 @@ namespace AdvArrayList1
         //returns -1 if there were no assignments in the section or there are no sections.
         public double getOverallScoreAvg()
         {
-            return -1; //FIXME
+            if (sections.Count == 0)
+            {
+                return -1;
+            }
+            Section curSection = getCurrentSection();
+            if (curSection == null)
+            {
+                return -1;
+            }
+            return curSection.getOverallScoreAvg();
+            
         }
 
 
@@ -167,9 +177,18 @@ namespace AdvArrayList1
 
         //returns score on assignment specified as a percentage for the specified student in the current section
         //returns -1 if the student was not found or the student did not have an assignment with the specified assignment name or there are no sections
-        public double getAssignmentScorePercent(string username, string assignmentName)
+        public double getAssignmentScore(string username, string assignmentName)
         {
-            return -1;//FIXME
+            if (sections.Count == 0)
+            {
+                return -1;
+            }
+            Section curSection = getCurrentSection();
+            if (curSection == null)
+            {
+                return -1;
+            }
+            return curSection.getAssignmentScorePercent(username, assignmentName);
         }
 
         //returns the average score as a percentage for the current section.

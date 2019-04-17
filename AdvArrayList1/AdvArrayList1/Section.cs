@@ -123,6 +123,49 @@ namespace AdvArrayList1
             
         }
 
+        public double getOverallScoreAvg()
+        {
+            double classTotalScore = 0;
+            int numStudents = 0;
+            if(students.Count == 0)
+            {
+                return -1;
+            }
+
+            int index = 0;
+            while(index < students.Count)
+            {
+                if (students[index].getOverallScore() != -1)
+                {
+                    classTotalScore += students[index].getOverallScore();
+                    numStudents++;
+                }
+                index++;
+            }
+
+            return classTotalScore / numStudents;
+        }
+
+        public double getAssignmentScorePercent(string username, string assignmentName)
+        {
+            if (students.Count == 0)
+            {
+                return -1;
+            }
+            Student student = getCurrentStudent(username);
+            if (student == null)
+            {
+                return -1;
+            }
+            Assignment assignment = student.getAssignment(assignmentName);
+            if (student.getAssignment(assignmentName) == null)
+            {
+                return -1;
+            }
+            
+            return ((double)assignment.getPointsEarned()/assignment.getPointsPossible()) * 100;
+        }
+
         //mark the student specified by username tardy (increase tardy count)
         //if student no found return false, otherwise true
         public bool markTardy(string username)

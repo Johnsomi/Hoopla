@@ -127,7 +127,7 @@ namespace AdvArrayList1
                     string userName = Console.ReadLine();
                     Console.WriteLine("Enter assignment name:");
                     string assignmentName = Console.ReadLine();
-                    retDouble = gradebook.getAssignmentScorePercent(userName, assignmentName);
+                    retDouble = gradebook.getAssignmentScore(userName, assignmentName);
                 }
                 else if (optionSelectIndex == 11)
                 {
