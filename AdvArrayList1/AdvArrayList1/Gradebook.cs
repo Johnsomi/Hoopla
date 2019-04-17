@@ -96,7 +96,7 @@ namespace AdvArrayList1
                 return -1;
             }
             return curSection.getOverallScore(username);
-            //FIXME
+            
         }
         //returns overall score as a percentage for the current section - (the average of each students overall score.)
         //Each student should have the same weight even if they have different number of points possible

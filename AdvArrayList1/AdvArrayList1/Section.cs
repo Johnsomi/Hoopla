@@ -119,7 +119,8 @@ namespace AdvArrayList1
             {
                 return -1;
             }
-            student.getOverallScore();
+            return student.getOverallScore();
+            
         }
 
         //mark the student specified by username tardy (increase tardy count)

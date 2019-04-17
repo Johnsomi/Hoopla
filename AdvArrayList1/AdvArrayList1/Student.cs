@@ -87,7 +87,8 @@ namespace AdvArrayList1
                 index++;
             }
             //loop through all assignments
-                //add points earned / points possible
+            //add points earned / points possible
+            return Math.Round((totalPointsEarned / totalPointsPossible) * 100, 1);
         }
 
         public Assignment getAssignment(string assignmentName)
