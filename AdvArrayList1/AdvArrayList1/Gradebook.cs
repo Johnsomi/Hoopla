@@ -196,7 +196,17 @@ namespace AdvArrayList1
         //returns -1 if no student had an assignment with the specified assignment name  or there are no sections
         public double getAssignmentScoreAvg(string assignmentName)
         {
-            return -1;//FIXME
+            if (sections.Count == 0)
+            {
+                return -1;
+            }
+            Section curSection = getCurrentSection();
+            if (curSection == null)
+            {
+                return -1;
+            }
+            return curSection.getAssignmentScoreAvg(assignmentName); 
+            //FIXME
         }
 
         //adds 1 to the specified student's tardy count.

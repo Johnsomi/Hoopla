@@ -166,6 +166,27 @@ namespace AdvArrayList1
             return ((double)assignment.getPointsEarned()/assignment.getPointsPossible()) * 100;
         }
 
+        public double getAssignmentScoreAvg(string assignmentName)
+        {
+            double classAssignmentScore = 0;
+            int numStudents = 0;
+            if (students.Count == 0)
+            {
+                return -1;
+            }
+            int index = 0;
+            while (index < students.Count)
+            {
+                if (students[index].getAssignmentScoreAvg() != -1)
+                {
+                    classAssignmentScore += students[index].getAssignmentScoreAvg();
+                    numStudents++;
+                }
+                index++;
+            }
+            //FIXME
+        }
+
         //mark the student specified by username tardy (increase tardy count)
         //if student no found return false, otherwise true
         public bool markTardy(string username)
