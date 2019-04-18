@@ -206,7 +206,7 @@ namespace AdvArrayList1
                 return -1;
             }
             return curSection.getAssignmentScoreAvg(assignmentName); 
-            //FIXME
+            
         }
 
         //adds 1 to the specified student's tardy count.

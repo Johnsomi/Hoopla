@@ -177,14 +177,17 @@ namespace AdvArrayList1
             int index = 0;
             while (index < students.Count)
             {
-                if (students[index].getAssignmentScoreAvg() != -1)
+                classAssignmentScore += students[index].getAssignmentScoreAvg(assignmentName);
+                numStudents++;
+                if(classAssignmentScore <= -1)
                 {
-                    classAssignmentScore += students[index].getAssignmentScoreAvg();
-                    numStudents++;
+                    return -1;
                 }
+
                 index++;
             }
-            //FIXME
+            return classAssignmentScore / numStudents;
+            
         }
 
         //mark the student specified by username tardy (increase tardy count)

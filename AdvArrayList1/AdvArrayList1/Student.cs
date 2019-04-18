@@ -91,29 +91,24 @@ namespace AdvArrayList1
             return Math.Round((totalPointsEarned / totalPointsPossible) * 100, 1);
         }
 
-        public double getAssignmentScoreAvg()
+        public double getAssignmentScoreAvg(string assignmentName)
         {
-            double totalPointsEarned = 0;
-            double totalPointsPossible = 0;
-            //if student has no assignment return -1
+            
+            
             if (assignments.Count == 0)
             {
                 return -1;
             }
-            int index = 0;
-            while (index < assignments.Count())
+            
+            Assignment assignment = getAssignment(assignmentName);
+            if(assignment == null)
             {
-                //get points earned for first assignment
-                totalPointsEarned += assignments[index].getPointsEarned();
-                //then add new points earned to old one
-                totalPointsPossible += assignments[index].getPointsPossible();
-                index++;
+                return -1;
             }
-            //loop through all assignments
-            //add points earned / points possible
-            return Math.Round((totalPointsEarned / totalPointsPossible) * 100, 1);
+            int index = getAssignmentIndexByAssignmentName(assignmentName);
+            return assignments[index].getPointsEarned();
 
-            //FIXME
+            
         }
 
         public Assignment getAssignment(string assignmentName)
