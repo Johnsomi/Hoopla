@@ -249,13 +249,31 @@ namespace AdvArrayList1
         //returns the student tardy count for the specified student, it returns -1 if the student was not found  or there are no sections
         public int getTardyCount(string username)
         {
-            return -1; //FIXME
+            if (sections.Count == 0)
+            {
+                return -1;
+            }
+            Section curSection = getCurrentSection();
+            if (curSection == null)
+            {
+                return -1;
+            }
+            return curSection.getTardyCount(username);
         }
 
         //returns the student tardy count for the specified student, it returns -1 if the student was not found  or there are no sections
         public int getAbsentCount(string username)
         {
-            return -1; //FIXME
+            if (sections.Count == 0)
+            {
+                return -1;
+            }
+            Section curSection = getCurrentSection();
+            if (curSection == null)
+            {
+                return -1;
+            }
+            return curSection.getAbsentCount(username);
         }
 
         //returns -1 if no section was found with the given section name

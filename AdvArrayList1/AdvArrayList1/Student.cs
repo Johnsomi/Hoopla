@@ -52,6 +52,16 @@ namespace AdvArrayList1
             daysAbsent++;
         }
 
+        public int getTardyCount()
+        {
+            return daysTardy;
+        }
+
+        public int getAbsentCount()
+        {
+            return daysAbsent;
+        }
+
         //returns -1 if no student was found with the given username name
         //otherwise returns the index of the student with the matching username
         public int getAssignmentIndexByAssignmentName(string assignmentName)

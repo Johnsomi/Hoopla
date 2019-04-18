@@ -219,6 +219,34 @@ namespace AdvArrayList1
             return true;
         }
 
+        public int getTardyCount(string username)
+        {
+            if (students.Count == 0)
+            {
+                return -1;
+            }
+            Student student = getCurrentStudent(username);
+            if(student == null)
+            {
+                return -1;
+            }
+            return student.getTardyCount();
+        }
+
+        public int getAbsentCount(string username)
+        {
+            if (students.Count == 0)
+            {
+                return -1;
+            }
+            Student student = getCurrentStudent(username);
+            if (student == null)
+            {
+                return -1;
+            }
+            return student.getAbsentCount();
+        }
+
         //returns -1 if no student was found with the given username name
         //otherwise returns the index of the student with the matching username
         private int getStudentIndexByUsername(string username)
